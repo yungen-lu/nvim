@@ -136,49 +136,34 @@ let g:which_key_map.s = {
       \ 'S' : [':SSave'           , 'Save Session']   ,
       \ }
 
-" g is for git
-" let g:which_key_map.g = {
-"       \ 'name' : '+git' ,
-"       \ 'a' : [':Git add .'                        , 'add all'],
-"       \ 'A' : [':Git add %'                        , 'add current'],
-"       \ 'b' : [':Git blame'                        , 'blame'],
-"       \ 'B' : [':GBrowse'                          , 'browse'],
-"       \ 'c' : [':Git commit'                       , 'commit'],
-"       \ 'd' : [':Git diff'                         , 'diff'],
-"       \ 'D' : [':Gdiffsplit'                       , 'diff split'],
-"       \ 'g' : [':GGrep'                            , 'git grep'],
-"       \ 'G' : [':Gstatus'                          , 'status'],
-"       \ 'h' : [':GitGutterLineHighlightsToggle'    , 'highlight hunks'],
-"       \ 'H' : ['<Plug>(GitGutterPreviewHunk)'      , 'preview hunk'],
-"       \ 'i' : [':Gist -b'                          , 'post gist'],
-"       \ 'j' : ['<Plug>(GitGutterNextHunk)'         , 'next hunk'],
-"       \ 'k' : ['<Plug>(GitGutterPrevHunk)'         , 'prev hunk'],
-"       \ 'l' : [':Git log'                          , 'log'],
-"       \ 'm' : ['<Plug>(git-messenger)'             , 'message'],
-"       \ 'p' : [':Git push'                         , 'push'],
-"       \ 'P' : [':Git pull'                         , 'pull'],
-"       \ 'r' : [':GRemove'                          , 'remove'],
-"       \ 's' : ['<Plug>(GitGutterStageHunk)'        , 'stage hunk'],
-"       \ 'S' : [':!git status'                      , 'status'],
-"       \ 't' : [':GitGutterSignsToggle'             , 'toggle signs'],
-"       \ 'u' : ['<Plug>(GitGutterUndoHunk)'         , 'undo hunk'],
-"       \ 'v' : [':GV'                               , 'view commits'],
-"       \ 'V' : [':GV!'                              , 'view buffer commits'],
-"       \ }
-
-" let g:which_key_map.G = {
-"       \ 'name' : '+gist' ,
-"       \ 'a' : [':Gist -a'                          , 'post gist anon'],
-"       \ 'b' : [':Gist -b'                          , 'post gist browser'],
-"       \ 'd' : [':Gist -d'                          , 'delete gist'],
-"       \ 'e' : [':Gist -e'                          , 'edit gist'],
-"       \ 'l' : [':Gist -l'                          , 'list public gists'],
-"       \ 's' : [':Gist -ls'                         , 'list starred gists'],
-"       \ 'm' : [':Gist -m'                          , 'post gist all buffers'],
-"       \ 'p' : [':Gist -P'                          , 'post public gist '],
-"       \ 'P' : [':Gist -p'                          , 'post private gist '],
-"       \ }
-
+let g:which_key_map.g = {
+      \ 'name' : '+git' ,
+      \ 'a' : [':Git add .'                        , 'add all'],
+      \ 'A' : [':CocCommand fzf-preview.GitStatus' , 'actions'],
+      \ 'b' : [':Git blame'                        , 'blame'],
+      \ 'B' : [':GBrowse'                          , 'browse'],
+      \ 'c' : [':Git commit'                       , 'commit'],
+      \ 'd' : [':Git diff'                         , 'diff'],
+      \ 'D' : [':Gdiffsplit'                       , 'diff split'],
+      \ 'g' : [':GGrep'                            , 'git grep'],
+      \ 'G' : [':Gstatus'                          , 'status'],
+      \ 'h' : [':GitGutterLineHighlightsToggle'    , 'highlight hunks'],
+      \ 'H' : ['<Plug>(GitGutterPreviewHunk)'      , 'preview hunk'],
+      \ 'i' : [':Gist -b'                          , 'post gist'],
+      \ 'j' : ['<Plug>(GitGutterNextHunk)'         , 'next hunk'],
+      \ 'k' : ['<Plug>(GitGutterPrevHunk)'         , 'prev hunk'],
+      \ 'l' : [':Git log'                          , 'log'],
+      \ 'm' : ['<Plug>(git-messenger)'             , 'message'],
+      \ 'p' : [':Git push'                         , 'push'],
+      \ 'P' : [':Git pull'                         , 'pull'],
+      \ 'r' : [':GRemove'                          , 'remove'],
+      \ 's' : ['<Plug>(GitGutterStageHunk)'        , 'stage hunk'],
+      \ 'S' : [':CocCommand fzf-preview.GitStatus' , 'status'],
+      \ 't' : [':GitGutterSignsToggle'             , 'toggle signs'],
+      \ 'u' : ['<Plug>(GitGutterUndoHunk)'         , 'undo hunk'],
+      \ 'v' : [':GV'                               , 'view commits'],
+      \ 'V' : [':GV!'                              , 'view buffer commits'],
+      \ }
 " l is for language server protocol
 let g:which_key_map.l = {
       \ 'name' : '+lsp' ,
@@ -226,44 +211,3 @@ let g:which_key_map.t = {
       \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
       \ 't' : [':FloatermToggle'                                , 'toggle'],
       \ }
-
-" T is for terminal
-" let g:which_key_map.T = {
-"       \ 'name' : '+tabline' ,
-"       \ 'b' : [':XTabListBuffers'         , 'list buffers'],
-"       \ 'd' : [':XTabCloseBuffer'         , 'close buffer'],
-"       \ 'D' : [':XTabDeleteTab'           , 'close tab'],
-"       \ 'h' : [':XTabHideBuffer'          , 'hide buffer'],
-"       \ 'i' : [':XTabInfo'                , 'info'],
-"       \ 'l' : [':XTabLock'                , 'lock tab'],
-"       \ 'm' : [':XTabMode'                , 'toggle mode'],
-"       \ 'n' : [':tabNext'                 , 'next tab'],
-"       \ 'N' : [':XTabMoveBufferNext'      , 'buffer->'],
-"       \ 't' : [':tabnew'                  , 'new tab'],
-"       \ 'p' : [':tabprevious'             , 'prev tab'],
-"       \ 'P' : [':XTabMoveBufferPrev'      , '<-buffer'],
-"       \ 'x' : [':XTabPinBuffer'           , 'pin buffer'],
-"       \ }
-
-" w is for wiki
-" let g:which_key_map.w = {
-"       \ 'name' : '+wiki' ,
-"       \ 'w' : ['<Plug>VimwikiIndex'                              , 'ncdu'],
-"       \ 'n' : ['<plug>(wiki-open)'                              , 'ncdu'],
-"       \ 'j' : ['<plug>(wiki-journal)'                              , 'ncdu'],
-"       \ 'R' : ['<plug>(wiki-reload)'                              , 'ncdu'],
-"       \ 'c' : ['<plug>(wiki-code-run)'                              , 'ncdu'],
-"       \ 'b' : ['<plug>(wiki-graph-find-backlinks)'                              , 'ncdu'],
-"       \ 'g' : ['<plug>(wiki-graph-in)'                              , 'ncdu'],
-"       \ 'G' : ['<plug>(wiki-graph-out)'                              , 'ncdu'],
-"       \ 'l' : ['<plug>(wiki-link-toggle)'                              , 'ncdu'],
-"       \ 'd' : ['<plug>(wiki-page-delete)'                              , 'ncdu'],
-"       \ 'r' : ['<plug>(wiki-page-rename)'                              , 'ncdu'],
-"       \ 't' : ['<plug>(wiki-page-toc)'                              , 'ncdu'],
-"       \ 'T' : ['<plug>(wiki-page-toc-local)'                              , 'ncdu'],
-"       \ 'e' : ['<plug>(wiki-export)'                              , 'ncdu'],
-"       \ 'u' : ['<plug>(wiki-list-uniq)'                              , 'ncdu'],
-"       \ 'U' : ['<plug>(wiki-list-uniq-local)'                              , 'ncdu'],
-"       \ }
-" " Register which key map
-call which_key#register('<Space>', "g:which_key_map")
