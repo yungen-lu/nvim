@@ -1,5 +1,6 @@
 nnoremap <silent> <leader> :silent <c-u> :silent WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
+let g:which_key_timeout = 100
 
 " Create map to add keys to
 let g:which_key_map =  {}
@@ -11,11 +12,16 @@ let g:which_key_map['?'] = 'search word'
 
 " Not a fan of floating windows for this
 let g:which_key_use_floating_win = 0
+let g:which_key_display_names = {'<CR>': '↵', '<TAB>': '⇆'}
 " Change the colors if you want
 highlight default link WhichKey          Operator
 highlight default link WhichKeySeperator DiffAdded
 highlight default link WhichKeyGroup     Identifier
 highlight default link WhichKeyDesc      Function
+" Hide status line
+autocmd! FileType which_key
+autocmd  FileType which_key set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 " Single mappings
 let g:which_key_map['/'] = [ ':call Comment()'                    , 'comment' ]
 let g:which_key_map['.'] = [ ':e $MYVIMRC'                        , 'open init' ]
@@ -24,18 +30,15 @@ let g:which_key_map['='] = [ '<C-W>='                             , 'balance win
 let g:which_key_map['d'] = [ ':Bdelete'                           , 'delete buffer']
 let g:which_key_map['e'] = [ ':CocCommand explorer'               , 'explorer' ]
 let g:which_key_map['h'] = [ '<C-W>s'                             , 'split below']
-"let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
 let g:which_key_map['n'] = [ ':let @/ = ""'                       , 'no highlight' ]
 let g:which_key_map['p'] = [ ':Files'                             , 'search files' ]
 let g:which_key_map['q'] = [ 'q'                                  , 'quit' ]
-" let g:which_key_map['r'] = [ ''                      , 'smart rename' ]
+let g:which_key_map['r'] = [ 'smart rename']
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
 let g:which_key_map['v'] = [ '<C-W>v'                             , 'split right']
-let g:which_key_map['c'] = [ ':Clap files'                                  , 'clap files' ]
+" let g:which_key_map['c'] = [ ':Clap files'                                  , 'clap files' ]
 let g:which_key_map['z'] = [ '<Plug>(coc-fix-current)'                               , 'auto fix' ]
 let g:which_key_map['F'] = [ ':Autoformat'                        , 'autoformat']
-let g:which_key_map['-'] = [ ':AirlineSelectPrevTab'              , 'prev tab']
-let g:which_key_map['+'] = [ ':AirlineSelectNextTab'              , 'next tab']
 let g:which_key_map.1 = 'which_key_ignore'
 let g:which_key_map.2 = 'which_key_ignore'
 let g:which_key_map.3 = 'which_key_ignore'
@@ -60,41 +63,36 @@ let g:which_key_map.a = {
 
 " b is for buffer
 "let g:which_key_map.b = {
-      \ 'name' : '+buffer' ,
-      \ '1' : ['b1'        , 'buffer 1'],
-      \ '2' : ['b2'        , 'buffer 2'],
-      \ 'd' : [':Bdelete'  , 'delete-buffer'],
-      \ 'f' : ['bfirst'    , 'first-buffer'],
-      \ 'h' : ['Startify'  , 'home-buffer'],
-      \ 'l' : ['blast'     , 'last-buffer'],
-      \ 'n' : ['bnext'     , 'next-buffer'],
-      \ 'p' : ['bprevious' , 'previous-buffer'],
-      \ '?' : ['Buffers'   , 'fzf-buffer'],
-      \ }
+      " \ 'name' : '+buffer' ,
+      " \ 'l' : ['blast'     , 'last-buffer'],
+      " \ 'n' : ['bnext'     , 'next-buffer'],
+      " \ 'p' : ['bprevious' , 'previous-buffer'],
+      " \ '?' : ['Buffers'   , 'fzf-buffer'],
+      " \ }
 
 " f is for find and replace
-let g:which_key_map.f = {
-      \ 'name' : '+find & replace' ,
-      \ 'b' : [':Farr --source=vimgrep'    , 'buffer'],
-      \ 'p' : [':Farr --source=rgnvim'     , 'project'],
-      \ }
+" let g:which_key_map.f = {
+"       \ 'name' : '+find & replace' ,
+"       \ 'b' : [':Farr --source=vimgrep'    , 'buffer'],
+"       \ 'p' : [':Farr --source=rgnvim'     , 'project'],
+"       \ }
 
 " k is for task
-let g:which_key_map.k = {
-      \ 'name' : '+task' ,
-      \ 'c' : [':AsyncTask file-compile'      , 'compile file'],
-      \ 'b' : [':AsyncTask project-build'     , 'build project'],
-      \ 'e' : [':AsyncTaskEdit'               , 'edit local tasks'],
-      \ 'f' : [':AsyncTaskFzf'                , 'find task'],
-      \ 'g' : [':AsyncTaskEdit!'              , 'edit global tasks'],
-      \ 'h' : [':AsyncTaskList!'              , 'list hidden tasks'],
-      \ 'l' : [':CocList tasks'               , 'list tasks'],
-      \ 'm' : [':AsyncTaskMacro'              , 'macro help'],
-      \ 'o' : [':copen'                       , 'open task view'],
-      \ 'r' : [':AsyncTask file-run'          , 'run file'],
-      \ 'p' : [':AsyncTask project-run'       , 'run project'],
-      \ 'x' : [':cclose'                      , 'close task view'],
-      \ }
+" let g:which_key_map.k = {
+"       \ 'name' : '+task' ,
+"       \ 'c' : [':AsyncTask file-compile'      , 'compile file'],
+"       \ 'b' : [':AsyncTask project-build'     , 'build project'],
+"       \ 'e' : [':AsyncTaskEdit'               , 'edit local tasks'],
+"       \ 'f' : [':AsyncTaskFzf'                , 'find task'],
+"       \ 'g' : [':AsyncTaskEdit!'              , 'edit global tasks'],
+"       \ 'h' : [':AsyncTaskList!'              , 'list hidden tasks'],
+"       \ 'l' : [':CocList tasks'               , 'list tasks'],
+"       \ 'm' : [':AsyncTaskMacro'              , 'macro help'],
+"       \ 'o' : [':copen'                       , 'open task view'],
+"       \ 'r' : [':AsyncTask file-run'          , 'run file'],
+"       \ 'p' : [':AsyncTask project-run'       , 'run project'],
+"       \ 'x' : [':cclose'                      , 'close task view'],
+"       \ }
       " \ 'l' : [':AsyncTaskList'               , 'list tasks'],
 
 " s is for search
@@ -127,14 +125,6 @@ let g:which_key_map.s = {
       \ }
       " \ 's' : [':Snippets'     , 'snippets'],
 
-"let g:which_key_map.S = {
-      \ 'name' : '+Session' ,
-      \ 'c' : [':SClose'          , 'Close Session']  ,
-      \ 'd' : [':SDelete'         , 'Delete Session'] ,
-      \ 'l' : [':SLoad'           , 'Load Session']     ,
-      \ 's' : [':Startify'        , 'Start Page']     ,
-      \ 'S' : [':SSave'           , 'Save Session']   ,
-      \ }
 
 let g:which_key_map.g = {
       \ 'name' : '+git' ,
@@ -201,7 +191,6 @@ let g:which_key_map.l = {
       \ 'z' : [':CocDisable'                         , 'disable CoC'],
       \ 'Z' : [':CocEnable'                          , 'enable CoC'],
       \ }
-      " \ 'o' : ['<Plug>(coc-openlink)'                , 'open link'],
 
 " t is for terminal
 let g:which_key_map.t = {
@@ -211,3 +200,5 @@ let g:which_key_map.t = {
       \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
       \ 't' : [':FloatermToggle'                                , 'toggle'],
       \ }
+" Register which key map
+call which_key#register('<Space>', "g:which_key_map")
