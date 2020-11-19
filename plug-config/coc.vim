@@ -6,9 +6,11 @@
        \ 'coc-clangd',
        \ 'coc-json',
        \ 'coc-diagnostic',
+       \ 'coc-markdownlint',
+       \ 'coc-diagnostic',
+       \ 'coc-git',
        \ ]
 "       \ 'coc-tasks',
-"       \ 'coc-emoji',
 "       \ 'coc-marketplace',
 "       \ 'coc-tabnine',
 " Use tab for trigger completion with characters ahead and navigate.
