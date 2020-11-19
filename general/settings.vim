@@ -4,6 +4,7 @@ set mouse=a   " 開啟 mouse-reporting 功能
 set t_Co=256                            " Support 256 colors
 set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent
+set cindent
 set number                              " Line numbers
 set nocursorline                          " Enable highlighting of the current line
 set clipboard=unnamedplus               " Copy paste between vim and everything else
@@ -17,6 +18,8 @@ set shiftwidth=4               " On pressing tab, insert 4 spaces
 set expandtab
 set pumheight=10                        " Makes popup menu smaller
 set laststatus=2                        " Always show statusline
+" Improve searching
+set ignorecase smartcase
 
 " if hidden is not set, TextEdit might fail.
 set hidden
