@@ -1,5 +1,5 @@
 syntax on
-set number 
+set number
 set mouse=a   " 開啟 mouse-reporting 功能
 set t_Co=256                            " Support 256 colors
 set smartindent                         " Makes indenting smart

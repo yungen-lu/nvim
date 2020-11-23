@@ -1,6 +1,6 @@
 {
     "diagnostic.errorSign": "●",
-    "diagnostic.warningSign": "⚠",
+    "diagnostic.warningSign": "▲",
     "git.addedSign.hlGroup": "GitGutterAdd",
     "git.changedSign.hlGroup": "GitGutterChange",
     "git.removedSign.hlGroup": "GitGutterDelete",
@@ -19,7 +19,7 @@
     "clangd.semanticHighlighting": true,
     "diagnostic.displayByAle": false,
     "clangd.enabled": true,
-    "clangd.arguments": ["--clang-tidy", "--background-index", "--suggest-missing-includes"],
+    "clangd.arguments": [],
     "diagnostic-languageserver.linters": {
         "cpplint": {
             "command": "cpplint",
@@ -56,6 +56,7 @@
             "command": "cppcheck",
             "args": [
                 "--enable=performance,warning,style,portability,information",
+                "--suppress=missingIncludeSystem",
                 "--std=c99",
                 "--language=c",
                 "%file"
@@ -70,6 +71,7 @@
                 "^[^ ]+:(\\d*):(\\d+):\\s+([^:]+):\\s+(.+)$",
                 {
                     "line": 1,
+                    "column": 2,
                     "message": 4,
                     "security": 3
                 }
@@ -86,9 +88,9 @@
         }
     },
     "diagnostic-languageserver.filetypes": {
+        "cpp": [],
         "c": [
-            "cppcheck",
-            "cpplint"
+            "cppcheck"
         ]
     }
 }
