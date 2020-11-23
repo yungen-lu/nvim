@@ -1,0 +1,93 @@
+{
+    "diagnostic.errorSign": "●",
+    "diagnostic.warningSign": "⚠",
+    "git.addedSign.hlGroup": "GitGutterAdd",
+    "git.changedSign.hlGroup": "GitGutterChange",
+    "git.removedSign.hlGroup": "GitGutterDelete",
+    "git.topRemovedSign.hlGroup": "GitGutterDelete",
+    "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+    "diagnostic.checkCurrentLine": true,
+    "explorer.width": 30,
+    "explorer.icon.enableNerdfont": true,
+    "explorer.previewAction.onHover": false,
+    "explorer.icon.enableVimDevicons": false,
+    "explorer.keyMappings.global": {
+        "<cr>": ["expandable?", "expand", "open"],
+        "v": "open:vsplit"
+    },
+    "clangd.semanticHighlighting": true,
+    "diagnostic.displayByAle": false,
+    "clangd.enabled": true,
+    "clangd.arguments": ["--suggest-missing-includes", "-fallback-style=Google"],
+    "diagnostic-languageserver.linters": {
+        "cpplint": {
+            "command": "cpplint",
+            "args": [
+                "--linelength=120",
+                "--verbose=1",
+                "%file"
+            ],
+            "debounce": 100,
+            "isStderr": true,
+            "isStdout": false,
+            "sourceName": "cpplint",
+            "offsetLine": 0,
+            "offsetColumn": 0,
+            "formatPattern": [
+                "^[^:]+:(\\d+):(\\d+)?\\s+([^:]+?)\\s\\[(\\d)\\]$",
+                {
+                    "line": 1,
+                    "column": 2,
+                    "message": 3,
+                    "security": 4
+                }
+            ],
+            "securities": {
+                "1": "info",
+                "2": "info",
+                "3": "hint",
+                "4": "hint",
+                "5": "error"
+            }
+        },
+        "cppcheck": {
+            "command": "cppcheck",
+            "args": [
+                "--enable=performance,warning,style,portability,information",
+                "--suppress=missingIncludeSystem",
+                "--std=c++20",
+                "--language=cpp",
+                "%file"
+            ],
+            "sourceName": "cppcheck",
+            "debounce": 99,
+            "isStderr": true,
+            "isStdout": false,
+            "offsetLine": 0,
+            "offsetColumn": 0,
+            "formatPattern": [
+                "^[^ ]+:(\\d*):(\\d+):\\s+([^:]+):\\s+(.+)$",
+                {
+                    "line": 1,
+                    "message": 4,
+                    "security": 3
+                }
+            ],
+            "securities": {
+                "warning": "warning",
+                "info": "info",
+                "style": "hint",
+                "performance": "info",
+                "error": "error",
+                "portability": "hint",
+                "information": "info"
+            }
+        }
+    },
+    "diagnostic-languageserver.filetypes": {
+        "cpp": [
+            "cppcheck",
+            "cpplint"
+        ]
+    }
+}
