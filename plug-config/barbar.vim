@@ -6,3 +6,4 @@ nnoremap <silent> <leader>5 :BufferGoto 5<CR>
 nnoremap <silent> <leader>6 :BufferGoto 6<CR>
 nnoremap <silent> <leader>7 :BufferGoto 7<CR>
 nnoremap <silent> <leader>8 :BufferGoto 8<CR>
+nnoremap <silent> gb :BufferPick<CR>

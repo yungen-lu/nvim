@@ -10,9 +10,9 @@ let g:coc_global_extensions = [
             \ 'coc-clangd',
             \ 'coc-json',
             \ 'coc-diagnostic',
-            \ 'coc-markdownlint',
             \ 'coc-diagnostic',
-            \ 'coc-git',
+            \ 'coc-tsserver',
+            \ 'coc-html'
             \ ]
 "       \ 'coc-tasks',
 "       \ 'coc-marketplace',
@@ -35,11 +35,13 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
 if exists('*complete_info')
-    inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+    imap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<Plug>(PearTreeExpand)"
 else
-    imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>(PearTreeExpand)"
+    " imap <expr> <CR> !pumvisible() ? "\<C-g>u\<CR" : "\<CR>"
 endif
-
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>" /org
+" imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"/org
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)

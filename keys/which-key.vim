@@ -23,22 +23,25 @@ autocmd! FileType which_key
 autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 " Single mappings
-let g:which_key_map['/'] = [ ':call Comment()'                    , 'comment' ]
+" let g:which_key_map['/'] = [ ':call Comment()'                    , 'comment' ]
+let g:which_key_map["/"] = 'comment'
 let g:which_key_map['.'] = [ ':e $MYVIMRC'                        , 'open init' ]
 let g:which_key_map[';'] = [ ':Commands'                          , 'commands' ]
-let g:which_key_map['='] = [ '<C-W>='                             , 'balance windows' ]
+let g:which_key_map['S'] = [ 'ysiw'                             , 'add surroundings' ]
 let g:which_key_map['d'] = [ ':BufferClose'                           , 'delete buffer']
 let g:which_key_map['e'] = [ ':CocCommand explorer'               , 'explorer' ]
 let g:which_key_map['h'] = [ '<C-W>s'                             , 'split below']
 let g:which_key_map['n'] = [ ':let @/ = ""'                       , 'no highlight' ]
 let g:which_key_map['p'] = [ ':Files'                             , 'search files' ]
 let g:which_key_map['q'] = [ 'q'                                  , 'quit' ]
-let g:which_key_map['r'] = [ 'smart rename']
+" let g:which_key_map['r'] = [ 'smart rename']
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
 let g:which_key_map['v'] = [ '<C-W>v'                             , 'split right']
-" let g:which_key_map['c'] = [ ':Clap files'                                  , 'clap files' ]
+let g:which_key_map['V'] = [ ':Vista!!'                                  , 'Vista' ]
 let g:which_key_map['z'] = [ '<Plug>(coc-fix-current)'                               , 'auto fix' ]
-let g:which_key_map['F'] = [ ':Autoformat'                        , 'autoformat']
+let g:which_key_map['F'] = [ ':Neoformat'                        , 'autoformat']
+let g:which_key_map['c'] = [ ':Codi'                        , 'toogle codi']
+let g:which_key_map['C'] = [ ':Codi!'                        , 'toogle off codi']
 let g:which_key_map.1 = 'which_key_ignore'
 let g:which_key_map.2 = 'which_key_ignore'
 let g:which_key_map.3 = 'which_key_ignore'
@@ -48,7 +51,6 @@ let g:which_key_map.6 = 'which_key_ignore'
 let g:which_key_map.7 = 'which_key_ignore'
 let g:which_key_map.8 = 'which_key_ignore'
 let g:which_key_map.9 = 'which_key_ignore'
-let g:which_key_map.r = 'which_key_ignore'
 " Group mappings
 
 " a is for actions
@@ -78,21 +80,21 @@ let g:which_key_map.a = {
 "       \ }
 
 " k is for task
-" let g:which_key_map.k = {
-"       \ 'name' : '+task' ,
-"       \ 'c' : [':AsyncTask file-compile'      , 'compile file'],
-"       \ 'b' : [':AsyncTask project-build'     , 'build project'],
-"       \ 'e' : [':AsyncTaskEdit'               , 'edit local tasks'],
-"       \ 'f' : [':AsyncTaskFzf'                , 'find task'],
-"       \ 'g' : [':AsyncTaskEdit!'              , 'edit global tasks'],
-"       \ 'h' : [':AsyncTaskList!'              , 'list hidden tasks'],
-"       \ 'l' : [':CocList tasks'               , 'list tasks'],
-"       \ 'm' : [':AsyncTaskMacro'              , 'macro help'],
-"       \ 'o' : [':copen'                       , 'open task view'],
-"       \ 'r' : [':AsyncTask file-run'          , 'run file'],
-"       \ 'p' : [':AsyncTask project-run'       , 'run project'],
-"       \ 'x' : [':cclose'                      , 'close task view'],
-"       \ }
+let g:which_key_map.k = {
+      \ 'name' : '+task' ,
+      \ 'c' : [':AsyncTask file-build'      , 'compile file'],
+      \ 'b' : [':AsyncTask project-build'     , 'build project'],
+      \ 'e' : [':AsyncTaskEdit'               , 'edit local tasks'],
+      \ 'f' : [':AsyncTaskFzf'                , 'find task'],
+      \ 'g' : [':AsyncTaskEdit!'              , 'edit global tasks'],
+      \ 'h' : [':AsyncTaskList!'              , 'list hidden tasks'],
+      \ 'l' : [':CocList tasks'               , 'list tasks'],
+      \ 'm' : [':AsyncTaskMacro'              , 'macro help'],
+      \ 'o' : [':copen'                       , 'open task view'],
+      \ 'r' : [':AsyncTask file-run'          , 'run file'],
+      \ 'p' : [':AsyncTask project-run'       , 'run project'],
+      \ 'x' : [':cclose'                      , 'close task view'],
+      \ }
       " \ 'l' : [':AsyncTaskList'               , 'list tasks'],
 
 " s is for search

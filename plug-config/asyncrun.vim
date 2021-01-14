@@ -18,3 +18,4 @@ endfunction
 
 let g:asyncrun_runner = get(g:, 'asyncrun_runner', {})
 let g:asyncrun_runner.floaterm = function('s:runner_proc')
+let g:asynctasks_term_pos = 'floaterm'

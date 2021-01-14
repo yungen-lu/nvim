@@ -1,6 +1,16 @@
-let g:indentLine_fileTypeExclude = ['dashboard']
 let g:dashboard_default_executive ='fzf'
-let g:dashboard_default_header = 'commicgirl5'
+"let g:dashboard_default_header = 'commicgirl5'
+let g:dashboard_custom_header = [
+        \ '',
+\ ' ██╗   ██╗██╗   ██╗███╗   ██╗ ██████╗ ███████╗███╗   ██╗  ',
+\ ' ╚██╗ ██╔╝██║   ██║████╗  ██║██╔════╝ ██╔════╝████╗  ██║  ',
+\ '  ╚████╔╝ ██║   ██║██╔██╗ ██║██║  ███╗█████╗  ██╔██╗ ██║  ',
+\ '   ╚██╔╝  ██║   ██║██║╚██╗██║██║   ██║██╔══╝  ██║╚██╗██║  ',
+\ '    ██║   ╚██████╔╝██║ ╚████║╚██████╔╝███████╗██║ ╚████║  ',
+\ '    ╚═╝    ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝  ',
+ \ '                                                         ',                                           
+ \ '',
+        \ ]
 " let g:dashboard_preview_command = 'cat'
 " let g:dashboard_preview_file = getenv('HOME') . '/.config/nvim/neovim.cat'
 let g:dashboard_preview_file_height = 10
