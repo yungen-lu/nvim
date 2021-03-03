@@ -1,7 +1,7 @@
-augroup coc_set_cpp
-    au!
-    au FileType cpp let g:coc_config_home="~/.config/nvim/cpp-settings"
-augroup END
+" augroup coc_set_cpp
+"     au!
+"     au FileType cpp let g:coc_config_home="~/.config/nvim/cpp-settings"
+" augroup END
 let g:coc_global_extensions = [
             \ 'coc-snippets',
             \ 'coc-lists',
@@ -12,7 +12,8 @@ let g:coc_global_extensions = [
             \ 'coc-diagnostic',
             \ 'coc-diagnostic',
             \ 'coc-tsserver',
-            \ 'coc-html'
+            \ 'coc-html',
+            \ 'coc-pairs'
             \ ]
 "       \ 'coc-tasks',
 "       \ 'coc-marketplace',
@@ -35,10 +36,10 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
 if exists('*complete_info')
-    imap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<Plug>(PearTreeExpand)"
+    inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
-    imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>(PearTreeExpand)"
-    " imap <expr> <CR> !pumvisible() ? "\<C-g>u\<CR" : "\<CR>"
+    " imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>(PearTreeExpand)"
+    imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>" /org
 " imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"/org
@@ -124,7 +125,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings using CoCList:
 " Show all diagnostics.

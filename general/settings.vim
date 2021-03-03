@@ -5,12 +5,12 @@ set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent
 set number                              " Line numbers
 set nocursorline
-autocmd InsertEnter * call BetterInsertmode()
-function! BetterInsertmode()
-    setlocal cursorline
-    highlight CursorLine guibg=#202225
-endfunction
-autocmd InsertLeave * setlocal nocursorline
+" autocmd InsertEnter * call BetterInsertmode()
+" function! BetterInsertmode()
+"     setlocal cursorline
+"     highlight CursorLine guibg=#202225
+" endfunction
+" autocmd InsertLeave * setlocal nocursorline
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time
 set updatetime=300                      " Faster completion

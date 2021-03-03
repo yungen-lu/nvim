@@ -3,8 +3,6 @@ let mapleader=" "
 " let localleader=" "
 nnoremap <Space> <Nop>
 
-  inoremap jk <Esc>
-  inoremap jj <Esc>
   " Move selected line / block of text in visual mode
   " shift + k to move up
   " shift + j to move down
@@ -32,3 +30,6 @@ omap il :normal vil<CR>
 " newline in normal mode
 nnoremap <silent> [o :pu! _<cr>
 nnoremap <silent> ]o :pu _<cr>
+" jump to end of line and start of line in insert mode
+inoremap <C-a> <Home>
+inoremap <C-e> <End>

@@ -6,6 +6,7 @@ endif
 let g:airline_theme = 'edge'
 " let g:edge_diagnostic_line_highlight = 1
 let g:edge_enable_italic = 1
+let g:edge_sign_column_background = 'none'
 " let g:edge_current_word = 'bold'
 " let g:edge_diagnostic_line_highlight = 1
 " hi guicursor guibg=#700000 guifg=#700000
