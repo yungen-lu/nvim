@@ -1,3 +1,13 @@
 plugged/
 vscode/nvim-osx64/
 
+.netrwhist
+.nvimlog
+ch.sh
+changeauthor.sh
+general/.nvimlog
+keys/.nvimlog
+plug-config/.nvimlog
+vim-plug/.nvimlog
+vscode/.nvimlog
+vscode/nvim-macos.tar.gz
